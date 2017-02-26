@@ -1,0 +1,71 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4">
+            <div >
+                <div class="row">
+                    <h4> Search & Filters </h4>
+                    <div>
+                        <input type="text" placeholder="Fund, Ticket or Cusip" />
+                    </div>
+                    <table>
+                        <tr><td><h4>Group</h4></td></tr>
+                        <tr><td>Funds in My Plan</td></tr>
+                        <tr><td>All Available Funds</td></tr>
+                        <tr><td>Deselected</td></tr>
+                    </table>
+
+                    <table>
+                        <tr><td><h4>Category Sets</h4></td></tr>
+                        <tr><td>Morning Star</td></tr>
+                       
+                    </table>
+
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4">
+                    <span>Fund dates of Last Quarter End </span>
+                </div>
+                 <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Rate of Return</button>
+                    <button type="button" class="btn btn-primary">Expense Rations & compensation</button>
+                    
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table" *ngIf='products && products.length'>
+                    <thead>
+                        <tr>
+                            <th>Fund Name</th>
+                            <th>Ticker</th>
+                            <th>Morning Star</th>
+                            <th>1 Mo</th>
+                            <th>3 Mo</th>
+                            <th>1 Yr</th>
+                            <th>5 Yr</th>
+                            <th>Inception to Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr *ngFor='let product of products'>
+                           <td>{{product.fundname}}</td>
+                           <td>{{product.ticket}}</td>
+                           <td>{{product.morningstar}}</td>
+                           <td>{{product.monthly}}</td>
+                           <td>{{product.trimontly}}</td>
+                           <td>{{product.yearly}}</td>
+                           <td>{{product.fiveyearly}}</td>
+                           <td>{{product.inception}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
