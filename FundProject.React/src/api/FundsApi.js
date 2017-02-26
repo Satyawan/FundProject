@@ -1,14 +1,10 @@
-import {Component} from "@angular/core";
+import delay from './delay';
 
-@Component({
-    selector: 'fm-products',
-    templateUrl: 'app/funds/fund-list-component.html'
-})
-
-export class FundListComponent{
-    pageTitle: string= "Funds";
-    products: any[] = [
-        {
+// This file mocks a web API by working with the hard-coded data below.
+// It uses setTimeout to simulate the delay of an AJAX call.
+// All calls return promises.
+const funds = [
+  {
             "fundname":"T. Rowe Price Retirement 2045 Fund",
             "ticket": "RRTRX",
             "morningstar":"Target-Date",
@@ -128,5 +124,26 @@ export class FundListComponent{
             "fiveyearly":"7.15%",
             "inception":"4.77%"
         }
-    ];
+];
+
+class FundsApi {
+  static getAllFunds() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], funds));
+      }, delay);
+    });
+  }
+
+  static getFundsBySearch(search) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(Object.assign([], funds));
+      }, delay);
+    });
+  }
+
+  
 }
+
+export default FundsApi;
