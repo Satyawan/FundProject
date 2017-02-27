@@ -17,7 +17,9 @@ var FundListComponent = (function () {
         this.pageTitle = "Funds";
     }
     FundListComponent.prototype.ngOnInit = function () {
-        this.products = this._fundService.getFunds();
+        var _this = this;
+        this._fundService.getFunds()
+            .subscribe(function (funds) { return _this.products = funds; }, function (error) { return _this.errorMessage = error; });
     };
     return FundListComponent;
 }());

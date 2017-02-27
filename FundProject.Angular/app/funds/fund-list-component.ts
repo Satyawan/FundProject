@@ -11,8 +11,11 @@ export class FundListComponent implements OnInit{
     constructor(private _fundService: FundService){
     }
     pageTitle: string= "Funds";
+    errorMessage: string;
     products: IFund[] ;
     ngOnInit():void{
-        this.products = this._fundService.getFunds();
+        this._fundService.getFunds()
+            .subscribe(funds => this.products = funds,
+                        error => this.errorMessage = <any>error);
     }
 }
