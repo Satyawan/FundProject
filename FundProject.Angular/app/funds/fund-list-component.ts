@@ -1,132 +1,18 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {FundService} from "./fund.service";
+import {IFund} from './fund';
 
 @Component({
     selector: 'fm-products',
     templateUrl: 'app/funds/fund-list-component.html'
 })
 
-export class FundListComponent{
+export class FundListComponent implements OnInit{
+    constructor(private _fundService: FundService){
+    }
     pageTitle: string= "Funds";
-    products: any[] = [
-        {
-            "fundname":"T. Rowe Price Retirement 2045 Fund",
-            "ticket": "RRTRX",
-            "morningstar":"Target-Date",
-            "monthly":"6.56%",
-            "trimontly":"0.00",
-            "yearly":"-3.58%",
-            "fiveyearly":"7.10%",
-            "inception":"3.95%"
-        },
-        {
-            "fundname":"T. Rowe Price Retirement 2050 Fund",
-            "ticket": "RRTFX",
-            "morningstar":"Target-Date",
-            "monthly":"6.66%",
-            "trimontly":"0.00",
-            "yearly":"-3.55%",
-            "fiveyearly":"7.15%",
-            "inception":"4.77%"
-        },
-         {
-            "fundname":"T. Rowe Price Retirement 2045 Fund",
-            "ticket": "RRTRX",
-            "morningstar":"Target-Date",
-            "monthly":"6.56%",
-            "trimontly":"0.00",
-            "yearly":"-3.58%",
-            "fiveyearly":"7.10%",
-            "inception":"3.95%"
-        },
-        {
-            "fundname":"T. Rowe Price Retirement 2050 Fund",
-            "ticket": "RRTFX",
-            "morningstar":"Target-Date",
-            "monthly":"6.66%",
-            "trimontly":"0.00",
-            "yearly":"-3.55%",
-            "fiveyearly":"7.15%",
-            "inception":"4.77%"
-        },
-         {
-            "fundname":"T. Rowe Price Retirement 2045 Fund",
-            "ticket": "RRTRX",
-            "morningstar":"Target-Date",
-            "monthly":"6.56%",
-            "trimontly":"0.00",
-            "yearly":"-3.58%",
-            "fiveyearly":"7.10%",
-            "inception":"3.95%"
-        },
-        {
-            "fundname":"T. Rowe Price Retirement 2050 Fund",
-            "ticket": "RRTFX",
-            "morningstar":"Target-Date",
-            "monthly":"6.66%",
-            "trimontly":"0.00",
-            "yearly":"-3.55%",
-            "fiveyearly":"7.15%",
-            "inception":"4.77%"
-        },
-         {
-            "fundname":"T. Rowe Price Retirement 2045 Fund",
-            "ticket": "RRTRX",
-            "morningstar":"Target-Date",
-            "monthly":"6.56%",
-            "trimontly":"0.00",
-            "yearly":"-3.58%",
-            "fiveyearly":"7.10%",
-            "inception":"3.95%"
-        },
-        {
-            "fundname":"T. Rowe Price Retirement 2050 Fund",
-            "ticket": "RRTFX",
-            "morningstar":"Target-Date",
-            "monthly":"6.66%",
-            "trimontly":"0.00",
-            "yearly":"-3.55%",
-            "fiveyearly":"7.15%",
-            "inception":"4.77%"
-        },
-         {
-            "fundname":"T. Rowe Price Retirement 2045 Fund",
-            "ticket": "RRTRX",
-            "morningstar":"Target-Date",
-            "monthly":"6.56%",
-            "trimontly":"0.00",
-            "yearly":"-3.58%",
-            "fiveyearly":"7.10%",
-            "inception":"3.95%"
-        },
-        {
-            "fundname":"T. Rowe Price Retirement 2050 Fund",
-            "ticket": "RRTFX",
-            "morningstar":"Target-Date",
-            "monthly":"6.66%",
-            "trimontly":"0.00",
-            "yearly":"-3.55%",
-            "fiveyearly":"7.15%",
-            "inception":"4.77%"
-        },
-         {
-            "fundname":"T. Rowe Price Retirement 2045 Fund",
-            "ticket": "RRTRX",
-            "morningstar":"Target-Date",
-            "monthly":"6.56%",
-            "trimontly":"0.00",
-            "yearly":"-3.58%",
-            "fiveyearly":"7.10%",
-            "inception":"3.95%"
-        },
-        {
-            "fundname":"T. Rowe Price Retirement 2050 Fund",
-            "ticket": "RRTFX",
-            "morningstar":"Target-Date",
-            "monthly":"6.66%",
-            "trimontly":"0.00",
-            "yearly":"-3.55%",
-            "fiveyearly":"7.15%",
-            "inception":"4.77%"
-        }
-    ];
+    products: IFund[] ;
+    ngOnInit():void{
+        this.products = this._fundService.getFunds();
+    }
 }
