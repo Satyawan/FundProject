@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using FundAPI.Models;
 
 namespace FundAPI.Controllers
 {
@@ -23,7 +24,5 @@ namespace FundAPI.Controllers
         }
     }
 
-    public class Funds
-    {
-    }
+   
 }
